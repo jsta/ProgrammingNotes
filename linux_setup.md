@@ -39,12 +39,6 @@ apps.
    sudo apt upgrade
    ```
 
-6. Install emacs
-
-   ```
-   sudo apt install emacs25
-   ```
-
 7. Connect to the internet (wifi), using eduroam
 
    - Followed the instructions at <https://kb.wisc.edu/page.php?id=22075>
@@ -84,7 +78,6 @@ apps.
      ```
      git config --global user.email "kbroman@gmail.com"
      git config --global user.name "Karl Broman"
-     git config --global core.editor "emacs"
      git config --global core.excludesfile "/home/kbroman/.gitignore_global"
      ```
 
@@ -145,33 +138,6 @@ apps.
   - Finally just did `sudo apt install r-cran-rsqlite`
   - After that, qtl2 installed fine
 
-
-13. Install ess and other emacs modes (mostly cloned from GitHub; all
-    placed in `~/.emacs.d`) and edit `~/.emacs` file.
-
-    - [ess](https://ess.r-project.org)
-    - [magit](https://github.com/magit/magit) (and
-      dependencies [dash](http://github.com/magnars/dash.el),
-      [with-editor](https://github.com/magit/with-editor),
-      [magit-popup](https://github.com/magit/magit-popup),
-      [ghub](https://github.com/magit/ghub),
-      [git-modes](https://github.com/magit/git-modes))
-    - [dracula-theme](https://github.com/dracula/emacs)
-    - [my own fork of polymode](https://github.com/kbroman/polymode)
-    - [arduino-mode](https://github.com/bookest/arduino-mode)
-    - [markdown-mode](https://github.com/jrblevin/markdown-mode)
-    - [d-mode](https://github.com/Emacs-D-Mode-Maintainers/Emacs-D-Mode)
-    - [adoc-mode](https://github.com/sensorflo/adoc-mode) (for
-      asciidoc)
-    - [coffee-mode](https://github.com/defunkt/coffee-mode)
-    - [inf-ruby](https://github.com/nonsequitur/inf-ruby)
-    - [emacs-pry](https://github.com/jacott/emacs-pry) (another
-      interactive ruby)
-
-    I also wanted
-    [html-helper-mode](http://download.savannah.gnu.org/releases/baol-hth/),
-    but I've not gotten it working yet.
-
 14. Install LaTeX (texlive)
 
     - I just did plain `sudo apt install texlive-full`
@@ -196,10 +162,6 @@ apps.
     - Skype was starting automatically on restarting the computer; had
       to de-select an option in the settings
     - **FIX ME**: shows up _really_ small when screen is in high-def mode
-    - Camera was not working initially, but when studying it, learned
-      about `cheese` (like Mac photobooth; see more below) and it
-      worked fine. So opened skype again and found the camera was
-      working. Not sure what changed.
     - Fn-F10 toggles the camera on and off; so maybe it was off and
       got toggled back on?
 
@@ -290,7 +252,6 @@ apps.
 
 25. Additional packages
 
-    - `bin-libgnome2` (for `gnome-open` which acts like `open` on a Mac)
     - `gnome-tweak-tool`
     - `caffeine` (thought this didn't work initially, but there's no
       longer a little icon in the "panel"; rather it runs in the

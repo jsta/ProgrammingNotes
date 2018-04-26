@@ -4,13 +4,6 @@
 brew tap staticfloat/julia
 brew install --HEAD --64bit julia
 ```
-
-In `.emacs`:
-
-```
-(setq inferior-julia-program-name "/usr/local/bin/julia")
-```
-
 ---
 
 Installing packages:

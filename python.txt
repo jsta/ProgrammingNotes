@@ -22,7 +22,7 @@ Remove environment
 ---
 
 IDE with anaconda is called "Spyder"
-(standard IDE is "idle" or "IDLE" but on my Mac it uses python2)
+(standard IDE is "idle" or "IDLE")
 (IDLE3 is the python3 version)
 
 ---
