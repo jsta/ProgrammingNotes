@@ -1,6 +1,6 @@
 ## Notes on sqlite
 
-brew install sqlite
+sudo apt-get install sqlite
 
 sqlite3 command actually in anaconda
 And apparently RSQLite and sqldb packages for R also include it

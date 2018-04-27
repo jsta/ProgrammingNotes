@@ -27,8 +27,6 @@
 
 - tab gives options (eg to resize image: click image file; do launchbar; tab; type resize copy as plain text: tab then cpt)
 
-- apple scripts
-
 - make your own search template (e.g., PubMed)
 
   - Open launchbar index

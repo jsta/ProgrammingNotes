@@ -22,15 +22,6 @@ apps.
 
 3. Opened firefox and logged in
 
-4. Connected to Office365
-
-   - Settings → Online accounts
-   - Microsoft Exchange → Add
-   - email = (my biostat account)
-   - custom: username = (my vanilla UW account, with @wisc.edu)
-   - custom: server = outlook.office365.com
-   - Use only for mail (deselect contacts and calendar)
-
 5. Software update
 
    ```
@@ -38,33 +29,6 @@ apps.
    sudo apt list --upgradable
    sudo apt upgrade
    ```
-
-7. Connect to the internet (wifi), using eduroam
-
-   - Followed the instructions at <https://kb.wisc.edu/page.php?id=22075>
-
-8. Get UW-Madison VPN working
-
-   - Followed the instructions at <https://kb.wisc.edu/page.php?id=74947>
-   - **FIX ME**: Didn't seem to work for me, though, in that I
-     couldn't connect to BMI servers. I mean:
-   - When running `sudo vpnc uwmadison.conf`, it did ask for my
-     password and then (after a delay) said `VPNC started in
-     background`, and when I did `ps aux | grep vpnc` I did see the
-     process running, _but_ I couldn't ssh into the biostat servers
-   - While vpnc is running, `ping broman-10.biostat.wisc.edu`
-     indicates I'm not able to connect. Same when I use the IP address
-     (that shows up when I ping without vpnc running). With vpnc
-     running, I seem to lose my network connection completely.
-   - Hmm...if I turn off wifi and connect with an ethernet cable, the
-     vpn works and I can get to the biostat servers. So maybe it's an
-     eduroam issue?
-   - playing with turning wired and wifi on and off, I can no longer
-     get a connection to anything at wisc.edu. Logging out and back in
-     didn't help, but restarting the computer worked
-   - works fine on my home wifi network, so maybe just an eduroam/vpnc issue
-
-
 9. ssh keys + connect to github
 
    - [created new ssh key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
@@ -95,30 +59,6 @@ apps.
     - Afterwards, I used `sudo umount /media/kbroman/KarlBkStuff`
       (I think I maybe didn't need the "`sudo`".)
 
-11. Set up mail in Geary
-
-    - First tried setting up gmail; authentication didn't work
-    - Needed to create an App-specific password; see
-      <https://support.google.com/accounts/answer/185833>
-    - Added the UW-Madison Office365 account too:
-      - "Geary" in menu bar -> Accounts -> plus sign
-      - Service -> Other
-      - Settings as at <https://kb.wisc.edu/page.php?id=28427>
-    - Also added my iCloud account, following instructions at
-      <https://support.apple.com/en-in/HT202304>, including need to
-      get an app-specific password at
-      <https://appleid.apple.com/account/manage>
-    - To control default font in messages, create a file
-      `~/.config/geary/user-message.css`, for example with:
-
-      ```
-      body {
-          font-family: Inconsolata;
-          font-size: 150%
-      }
-      ```
-
-
 12. Install R
 
    - See [instructions at digitalocean](https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2)
@@ -147,34 +87,9 @@ apps.
     - Download `.deb` file from <https://www.dropbox.com/install-linux>
     - Use `sudo dpkg -i dropbox_2015.10.28_amd64.deb`
 
-16. Install SimpleNote
-
-    - Following instructions at <https://www.dropbox.com/install-linux>
-    - Download `.deb` file from <https://simplenote.com>
-    - Need dependency: `sudo apt install pango1.0-0`
-    - `sudo dpkg -i Simplenote-*.deb`
-
-17. Install Skype
-
-    - Download `.deb` file from <https://www.skype.com/en/get-skype/>
-    - Need some dependencies: `sudo apt install gconf-service libgconf-2-4`
-    - Install with `sudo dpkg -i skypeforlinux-64.deb`
-    - Skype was starting automatically on restarting the computer; had
-      to de-select an option in the settings
-    - **FIX ME**: shows up _really_ small when screen is in high-def mode
-    - Fn-F10 toggles the camera on and off; so maybe it was off and
-      got toggled back on?
-
 
 18. Changed hostname by editing the files `/etc/hostname` and `/etc/hosts`
 
-
-19. Connect to printer
-
-    - When I got home and connected to my home wifi, it automatically
-      detected and added our printer. And it just worked: opened a PDF
-      in evince and was able to print a couple of pages double-sided
-      and in color.
 
 20. Install Google Chrome
 
@@ -660,39 +575,3 @@ apps.
 - Additional possible gnome extensions:
   - [Places status indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
   - [Pomodoro timer](http://gnomepomodoro.org/)
-
----
-
-### Stuff that didn't work:
-
-
-1. Set up Apple magic mouse via bluetooth settings
-
-   - It came up with a weird name; I had to go back to Mac and pair it
-     and then rename it and then back to pair again with the linux
-     laptop
-   - Scrolling speed was deathly slow. Followed instructions
-     at <https://askubuntu.com/a/262730>. In particular, I used:
-
-     ```
-     options hid_magicmouse scroll-speed=60 scroll-acceleration=2
-     ```
-   - **FIX ME**: want scrolling to go in the opposite direction
-   - **FIX ME**: after restarting and messing with the trackpad (not
-     sure what I did), the mouse stopped working.
-
-
-2. Try to get Apple Magic Trackpad working
-
-    - Looking at [Touchégg](https://github.com/JoseExposito/touchegg/wiki/How-to-compile-Touch%C3%A9gg-source-code)
-
-      ```
-      git clone git://github.com/JoseExposito/touchegg.git
-      sudo apt-get build-dep touchegg
-      qmake
-      make
-      sudo make install
-      ```
-
-    - **FIX ME**: At present, it's not working
-    - Removed Touchégg with `sudo make uninstall`

@@ -63,12 +63,3 @@ runtime_error
 - With R, it's defined by default
 
 - Use `-UNDEBUG` in `~/.R/Makevars` to turn force it to be undefined
-
-
----
-
-For C++ 11 on UWisc biostat server:
-
- - log in to nebula-2
- - `export PATH=/s/pkg/linux64/gcc/4.8.4/bin:$PATH`
- - (needed this for `install.packages(c("readxl", "feather"))`)

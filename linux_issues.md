@@ -27,9 +27,6 @@
   Illegal icon group:  7
   ```
 
-- Apple bluetooth magic mouse and magic trackpad
-
-
 ## Solved
 
 - VPN not working with eduroam, though it does work with wired
