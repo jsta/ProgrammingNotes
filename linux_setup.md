@@ -1,21 +1,5 @@
 ## Linux setup
 
-I got a new linux laptop, an
-[Oryx Pro](https://system76.com/laptops/oryx) from
-[System76](https://system76.com). This document describes what I did
-when setting it up.
-
-I had them install their [Pop!_OS](https://system76.com/pop) which is basically Ubuntu but
-with some re-configured sessions and different choices of included
-apps.
-
-1. Log in for the first time, creating a new account
-
-   - Set up including ability to connect google account.
-   - That also had an option for Microsoft Exchange, so I briefly
-     tried to connect to the UW-Madison Office 365, but it didn't work
-     immediately so I moved on.
-
 2. Connect to the internet (wired)
 
    - Plugged in a cable and it just worked.
@@ -394,25 +378,6 @@ apps.
 
     - Just used _Pop shop_ (the software installer for
       [Pop!_OS](http://pop.system76.com/docs)
-
-47. Installed [WINE](https://www.winehq.org/) and
-    [PlayOnLinux](https://www.playonlinux.com/en/) in the same way as
-    Slack and Corebird. Seems like if I use PlayOnLinux, I don't
-    really need to have installed WINE. And it seems that Office365
-    (Office 2016) can't be installed with either at this point, so
-    I don't really have any use for these.
-
-48. Set up backups
-
-    - Install Deja Dup via "Pop Shop"
-
-    - Used command-line program `gnome-disks` to change to name of my
-      extra hard drive.
-
-    - Set up Deja Dup for a daily backup of my home folder, ignoring
-      the Downloads folder.
-
-    - Ignore the folders `~/Dropbox` and `~/VirtualBox VMs`
 
 49. Copy over music
 
