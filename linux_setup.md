@@ -28,49 +28,24 @@
 	`sudo apt-get install notify-osd`
 	`sudo apt-get install overlay-scrollbar`
 
-6. ssh keys + connect to github
+5. ssh keys + connect to github
 
    - [created new ssh key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
    - installed xclip with `sudo apt install xclip`
    - pasted to clipboard with `xclip -sel clip < ~/.ssh/id_rsa.pub`
    - At github, settings -> ssh and gpg keys -> New SSH key
-   - Tested it out by cloning `git clone git@github.com:jsta/ProgrammingNotes`
-   - Trying to commit change to the repository, was reminded to set up git:
 
-     ```
-     git config --global user.email ""
-     git config --global user.name ""
-     git config --global core.excludesfile "/home/jsta/.gitignore_global"
-     ```
+6. install R
 
-4. install R
-
-   - See [instructions at digitalocean](https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2)
-
-     ```
-     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-     sudo add-apt-repository 'deb https://cran.rstudio.com/bin/linux/ubuntu bionic/'
-     sudo apt update
-     sudo apt install r-base
-     ```
+   - See [instructions at linuxconfig](https://linuxconfig.org/install-r-on-ubuntu-18-04-bionic-beaver-linux)
 
   - Install some packages: tidyverse, devtools
   - Needed `sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev libssh2-1-dev`
 
-5. install [keepassXC](https://keepassxc.org/download/)
+7. pull dotfiles repo
 
-    ```
-    sudo add-apt-repository ppa:phoerious/keepassxc
-    sudo apt update
-    sudo apt install keepassxc
-    ```
+   https://github.com/jsta/dotfiles
 
-7. Install Google Chrome
-
-    - Download from <https://www.google.com/chrome/browser/desktop/index.html>
-    - Install with `sudo dpkg -i google-chrome-*.deb`
-    - Needed libappindicator1
-    - Used `sudo apt --fix-broken install`
 
 8. Install RStudio
 
@@ -83,33 +58,37 @@
     - Needed to change CRAN mirror (in Tools -> global options ->
       packages) away from rstudio to something with https to avoid the
       warning at startup
+   
+11. install must-haves
+
+    - zotero
+    - python
+    - autokey
+    - qgis 
+    - grass
+
+12. Copy files from backup with `rsync`
 
 9. make Okular the pdf default
     
       - Open folder and right click on a PDF
       - Select Properties and then the "Open With" tab
       - Choose okular and click "Set default"
-    
-10. configure dotfiles
 
-    - `.Renviron`
-    - `.bashrc`
-    - `.gitconfig`
-    - `~/usr/lib/R/etc/Rprofile.site`
+5. install [keepassXC](https://keepassxc.org/download/)
 
-11. install extras
+    ```
+    sudo add-apt-repository ppa:phoerious/keepassxc
+    sudo apt update
+    sudo apt install keepassxc
+    ```
+13. install extras
 
-    - python
-    - pdftk
-    - autokey
     - inkscape
-    - qgis 
-    - zotero
+    - chrome
     - vscode
-    - grass
-    
-12. Copy files from backup with `rsync`
-
+    - pdftk
+  
 ---
 
 <details/>
