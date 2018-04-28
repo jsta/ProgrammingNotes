@@ -10,7 +10,13 @@
    
 2. configure apps
 
-**set Large text** _Settings -> Universal Access -> Large text_
+**Large text:** _Settings -> Universal Access -> Large text_
+
+**[Large terminal font size](http://askubuntu.com/questions/157873/is-it-possible-to-change-the-terminal-font):** _Edit -> Profile Preferences -> Font_
+
+**stop terminal lock on ctrl-s:** `echo "stty -ixon" >> ~/.bashrc`
+
+**stop gedit backup file creation:** `gsettings set org.gnome.gedit.preferences.editor create-backup-copy 'false'`
 
 3. ssh keys + connect to github
 
