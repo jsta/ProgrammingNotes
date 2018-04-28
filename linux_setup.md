@@ -8,17 +8,19 @@
    sudo apt upgrade
    ```
    
-2. configure apps
+2. configure base apps
 
 |   |   |
 | - | - |
 | **Large text:** | _Settings -> Universal Access -> Large text_ |
+| **[Large terminal font size](http://askubuntu.com/questions/157873/is-it-possible-to-change-the-terminal-font):** | _Edit -> Profile Preferences -> Font_ | 
+| stop terminal lock on ctrl-s: | `echo "stty -ixon" >> ~/.bashrc` |
+| **stop gedit backup file creation:** | `gsettings set org.gnome.gedit.preferences.editor create-backup-copy 'false'` |
+| Firefox extensions | _noscript, privacy badger, https everywhere_ |
 
-**[Large terminal font size](http://askubuntu.com/questions/157873/is-it-possible-to-change-the-terminal-font):** _Edit -> Profile Preferences -> Font_
+3. install basics
 
-**stop terminal lock on ctrl-s:** `echo "stty -ixon" >> ~/.bashrc`
-
-**stop gedit backup file creation:** `gsettings set org.gnome.gedit.preferences.editor create-backup-copy 'false'`
+`sudo apt-get install git evolution vim keepassx pandoc okular pdftk gimp`
 
 3. ssh keys + connect to github
 
@@ -30,9 +32,9 @@
    - Trying to commit change to the repository, was reminded to set up git:
 
      ```
-     git config --global user.email "kbroman@gmail.com"
-     git config --global user.name "Karl Broman"
-     git config --global core.excludesfile "/home/kbroman/.gitignore_global"
+     git config --global user.email ""
+     git config --global user.name ""
+     git config --global core.excludesfile "/home/jsta/.gitignore_global"
      ```
 12. Install R
 
@@ -40,31 +42,17 @@
 
      ```
      sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-     sudo add-apt-repository 'deb https://cran.rstudio.com/bin/linux/ubuntu artful/'
+     sudo add-apt-repository 'deb https://cran.rstudio.com/bin/linux/ubuntu bionic/'
      sudo apt update
      sudo apt install r-base
      ```
   - Copy over `.Rprofile` and `.Renviron`; both needed a bit of editing
-  - Also copy over `.rpushpullet.json`
   - Install some packages: tidyverse, broman, qtl, qtlcharts, qtl2, devtools
   - Needed `sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev libssh2-1-dev`
-  - When installing qtl2, error when installing bit64 package
-    ("Could not find function `bit_init()`")
-  - Finally just did `sudo apt install r-cran-rsqlite`
-  - After that, qtl2 installed fine
 
 14. Install LaTeX (texlive)
 
     - I just did plain `sudo apt install texlive-full`
-
-15. Install DropBox
-
-    - Download `.deb` file from <https://www.dropbox.com/install-linux>
-    - Use `sudo dpkg -i dropbox_2015.10.28_amd64.deb`
-
-
-18. Changed hostname by editing the files `/etc/hostname` and `/etc/hosts`
-
 
 20. Install Google Chrome
 
@@ -72,12 +60,6 @@
     - Install with `sudo dpkg -i google-chrome-*.deb`
     - Needed libappindicator1
     - Used `sudo apt --fix-broken install`
-
-
-21. Connect a USB stick
-
-    - Plug into USB port and it shows up in `/media/kbroman`
-    - Before removing, use `umount /media/kbroman/[drive name]`
 
 
 22. Install RStudio
@@ -361,10 +343,6 @@
     - [log out button](https://extensions.gnome.org/extension/1143/logout-button/)
 
 
-45. Install [Slack](https://slack.com/downloads/linux)
-
-    - Downloaded `.deb` file; opened it from Chrome to install.
-
 46. Install [Corebird](https://corebird.baedert.org/), twitter client
 
     - Just used _Pop shop_ (the software installer for
@@ -449,31 +427,12 @@
       to "Shared Folders" and right-click on "Machine Folders" and
       select "Add shared folder" and enter the path to the folder.
 
-52. Was looking at finding a better linux terminal, but I think the
-    standard gnome terminal will be fine for me.
-
-    - Can open a new terminal in an additional tab with
-      ctrl-shift-T
-    - Switch between tabs with ctrl-PgUp and ctrl-PgDn
-    - Alt-1, Alt-2, etc., to switch to a particular tab (by number, up
-      to 9; Alt-0 for tab 10)
-    - See all keyboard shortcuts by going to Edit -> Preferences ->
-      Shortcuts
-
 53. Install [gitg](http://gitx.frim.nl/), a git GUI similar to
     [gitx](http://gitx.frim.nl/) (which is Mac only)
 
     ```
     sudo apt install gitg
     ```
-
-54. Installed
-    [Thunderbird](https://www.mozilla.org/en-US/thunderbird/) because
-    Geary seems simplistic. Also installed the
-    [Lightning](https://www.mozilla.org/en-US/thunderbird/) calendar
-    add-on (sandwich button -> Add ons -> Get add ons -> search for
-    lightning). Also installed the add on "[Provider for google
-    calendar](https://support.mozilla.org/en-US/kb/using-lightning-google-calendar)".
 
 55. [Tunnelbear VPN](https://www.tunnelbear.com/blog/linux_support/)
 
@@ -497,36 +456,7 @@
         - [check your IP](https://bearsmyip.com/)
         - check for DNS leaks with "Extended test" at [dnsleaktest.com](https://www.dnsleaktest.com/)
 
-56. To try to avoid continual (but irregular) login problems, we
-    switched from gdm3 to lightdm as the "display manager". See the
-    [lightDM wiki](https://wiki.archlinux.org/index.php/LightDM).
-
-    ```shell
-    sudo apt install lightdm
-    sudo dpkg-reconfigure lightdm
-    ```
-
-    It asks you to choose between gdm3 and lightdm; choose lightdm.
-
-    At login, there's a startup sound that I don't like. Mute the
-    speaker on that screen; that setting seems to persist between
-    logins.
-
-    I also don't light the background; especially the grid of dots.
-
-    I edited
-    `/usr/share/glib-2.0/schemas/com.canonical.unity-greeter.gschema.xml`
-    to change `"draw-grid"` to `false` and to change `background` to
-    `/usr/share/backgrounds/yosemite....jpg` (a file I'd copied there
-    from `~/Pictures/Wallpapers`. Then ran
-    `sudo glib-compile-schemas /usr/share/glib-2.0/schemas/`
-
 ---
-
-- Install ccache and use for compiling R
-
-  - `sudo apt install ccache`
-  - In `~/.R`:
 
 - Additional possible gnome extensions:
   - [Places status indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
