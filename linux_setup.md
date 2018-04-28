@@ -96,6 +96,8 @@
     - inkscape
     - qgis 
     - zotero
+    - vscode
+    - grass
     
 12. Copy files from backup with `rsync`
 
