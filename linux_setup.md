@@ -10,7 +10,7 @@
    
 2. configure apps
 
-_Settings -> Universal Access -> Large text_ # set Large text
+**set Large text** _Settings -> Universal Access -> Large text_
 
 3. ssh keys + connect to github
 
