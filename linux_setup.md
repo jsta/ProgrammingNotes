@@ -14,13 +14,13 @@
 | - | - |
 | **Large text:** | _Settings -> Universal Access -> Large text_ |
 | **[Large terminal font size](http://askubuntu.com/questions/157873/is-it-possible-to-change-the-terminal-font):** | _Edit -> Profile Preferences -> Font_ | 
-| stop terminal lock on ctrl-s: | `echo "stty -ixon" >> ~/.bashrc` |
+| **stop terminal lock on ctrl-s:** | `echo "stty -ixon" >> ~/.bashrc` |
 | **stop gedit backup file creation:** | `gsettings set org.gnome.gedit.preferences.editor create-backup-copy 'false'` |
-| Firefox extensions | _noscript, privacy badger, https everywhere_ |
+| **Firefox extensions** | _noscript, privacy badger, https everywhere_ |
 
 3. install basics
 
-`sudo apt-get install git evolution vim keepassx pandoc okular pdftk gimp`
+`sudo apt-get install git evolution vim pandoc okular pdftk gimp`
 
 3. ssh keys + connect to github
 
@@ -61,7 +61,6 @@
     - Needed libappindicator1
     - Used `sudo apt --fix-broken install`
 
-
 22. Install RStudio
 
     - Download Ubuntu 16.04+ `.deb` file from
@@ -74,7 +73,6 @@
       packages) away from rstudio to something with https to avoid the
       warning at startup
 
-
 23. Link to pandoc that shipped with RStudio
     (see <https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md>)
 
@@ -82,7 +80,6 @@
     sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc /usr/local/bin
     sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc-citeproc /usr/local/bin
     ```
-
 
 24. Okular pdf reader
 
@@ -121,6 +118,84 @@
 
     - Tried installing [mint themes](https://www.gnome-look.org/p/1175954/)
 
+30. Color picker, [gpick](http://www.gpick.org/)
+
+    ```
+    sudo apt install gipck
+    ```
+
+31. Copy stuff into `.bashrc`
+
+37. Install python-dev (not sure whether I really need this)
+
+    - `sudo apt install python-dev python3-dev`
+
+41. Install [keepassXC](https://keepassxc.org/download/)
+
+    ```
+    sudo add-apt-repository ppa:phoerious/keepassxc
+    sudo apt update
+    sudo apt install keepassxc
+    ```
+
+    (this took me a while because I kept typing `keypassxc` rather
+    than `keepassxc`)
+
+43. More stuff via `sudo apt install`
+
+    - `inkscape` (like illustrator)
+
+49. Copy over music
+
+    - Used `rsync`; issue of having spaces in paths, but can do like
+      this (note the backslashes _and_ quotes):
+
+      ```
+      rsync -a "fig.local:Music/iTunes/iTunes\ Music/They\ Might\ Be\ Giants" .
+      ```
+
+    - In banshee: Tools -> Rescan Music Library
+
+    - `.m4a` files seem to work just as well as `.mp3`
+
+50. [autokey](https://github.com/autokey/autokey) is great, but after a day or so it seems to start
+    using up 100% of a CPU. In short term, seems like I could just use
+    a `cron` job to re-start it every evening.
+
+    So I made a shell script with
+
+    ```
+    pkill autokey
+    sleep 10
+    autokey-gtk >& /dev/null &
+    ```
+
+    I then used `crontab -e` to add to my crontab file:
+
+    ```
+    0 2 * * * /bin/bash [path_to_shell_script]
+    ```
+---
+
+# kbroman extras
+
+- Additional possible gnome extensions:
+  - [Places status indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
+  - [Pomodoro timer](http://gnomepomodoro.org/)
+
+10. Copy over stuff from my desktop
+
+    - Attached USB drive that I'd copied stuff to
+    - Showed up in `/media/kbroman/[drive name]
+    - Used `rsync -a` to copy stuff over
+    - Got a bunch of errors like "`send_files failed ... Permission denied (13)`"
+      - No errors if I use `sudo rsync`
+      - But then `ls -l` shows that the owner and group are odd for the offensive files.
+      - So followed with `sudo chown kbroman -R [blah]`
+      - Also `sudo chgrp kbroman -R [blah]`
+      - (seems like I'm doing it wrong, but so be it)
+    - Afterwards, I used `sudo umount /media/kbroman/KarlBkStuff`
+      (I think I maybe didn't need the "`sudo`".)
 
 25. Additional packages
 
@@ -175,14 +250,6 @@
       [Eddy](https://github.com/donadigo/eddy), a debian package
       installer.
 
-30. Color picker, [gpick](http://www.gpick.org/)
-
-    ```
-    sudo apt install gipck
-    ```
-
-31. Copy stuff into `.bashrc`
-
 32. Install some more packages with `sudo apt install`
 
     - `enscript` (for making PS files from text files, rotated or 2 column)
@@ -202,8 +269,8 @@
     - `calibre` (organizes ebooks)
     - `autokey-gtk` (desktop automation)
     - `digikam` (organizing photos)
-
-35. Install npm and coffeescript
+    
+    35. Install npm and coffeescript
 
     - `sudo apt install npm`
     - `sudo npm install --global coffeescript`
@@ -215,10 +282,6 @@
 36. Install ruby (not sure whether I really need this)
 
     - `sudo apt install ruby-dev` (gives version 2.3.3; close enough?)
-
-37. Install python-dev (not sure whether I really need this)
-
-    - `sudo apt install python-dev python3-dev`
 
 38. Install peek (screen recording)
 
@@ -258,66 +321,6 @@
       gnome-open /usr/local/lib/Minecraft.jar
       ```
 
-
-41. Install [keepassXC](https://keepassxc.org/download/)
-
-    ```
-    sudo add-apt-repository ppa:phoerious/keepassxc
-    sudo apt update
-    sudo apt install keepassxc
-    ```
-
-    (this took me a while because I kept typing `keypassxc` rather
-    than `keepassxc`)
-
-42. Mount exFAT drive connect to a router
-
-    - Install `smbclient` and exFAT stuff
-
-      ```
-      sudo apt install smbclient exfat-fuse exfat-utils
-      ```
-
-    - List volumes
-
-      ```
-      smbclient -L //192.168.0.3
-      ```
-
-    - Mount the drive...was trying the following:
-
-      ```
-      sudo mount -t cifs -o username=kbroman //192.168.0.3/volume10/ /media/kbroman
-      ```
-
-      but got an error like one of these two:
-
-      ```
-      mount error(115): Operation now in progress
-      mount error(112): Host is down
-      ```
-
-    - However, I was able to connect using the GUI file browser.
-      Clicked "Other locations" and then typed `smb://192.168.0.3`
-
-43. More stuff via `sudo apt install`
-
-    - `pdftk` (pdf tools)
-    - (tried installing `pdfnup` but it seems it's included with
-      texlive)
-    - `pinta` (like MS paint)
-    - `handbrake` (for ripping DVDs)
-    - `gimp` (like photoshop)
-    - `inkscape` (like illustrator)
-    - `shutter` (image capture)
-    - `k3b` (for burning CDs)
-    - `banshee` (music app)
-    - `rclone` (like rsync for cloud storage)
-    - `filezilla` (ftp client)
-    - `libnotify-bin` (enables you to create desktop notifications
-      with `notify-send`)
-
-
 4. [Gnome extensions](https://extensions.gnome.org)
 
     - (Can install, uninstall, and configure extensions within browser)
@@ -347,37 +350,6 @@
 
     - Just used _Pop shop_ (the software installer for
       [Pop!_OS](http://pop.system76.com/docs)
-
-49. Copy over music
-
-    - Used `rsync`; issue of having spaces in paths, but can do like
-      this (note the backslashes _and_ quotes):
-
-      ```
-      rsync -a "fig.local:Music/iTunes/iTunes\ Music/They\ Might\ Be\ Giants" .
-      ```
-
-    - In banshee: Tools -> Rescan Music Library
-
-    - `.m4a` files seem to work just as well as `.mp3`
-
-50. [autokey](https://github.com/autokey/autokey) is great, but after a day or so it seems to start
-    using up 100% of a CPU. In short term, seems like I could just use
-    a `cron` job to re-start it every evening.
-
-    So I made a shell script with
-
-    ```
-    pkill autokey
-    sleep 10
-    autokey-gtk >& /dev/null &
-    ```
-
-    I then used `crontab -e` to add to my crontab file:
-
-    ```
-    0 2 * * * /bin/bash [path_to_shell_script]
-    ```
 
 51. VirtualBox and Windows + Office365
     See <https://www.extremetech.com/computing/198427-how-to-install-windows-10-in-a-virtual-machine>
@@ -455,23 +427,3 @@
     - To test:
         - [check your IP](https://bearsmyip.com/)
         - check for DNS leaks with "Extended test" at [dnsleaktest.com](https://www.dnsleaktest.com/)
-
----
-
-- Additional possible gnome extensions:
-  - [Places status indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
-  - [Pomodoro timer](http://gnomepomodoro.org/)
-
-10. Copy over stuff from my desktop
-
-    - Attached USB drive that I'd copied stuff to
-    - Showed up in `/media/kbroman/[drive name]
-    - Used `rsync -a` to copy stuff over
-    - Got a bunch of errors like "`send_files failed ... Permission denied (13)`"
-      - No errors if I use `sudo rsync`
-      - But then `ls -l` shows that the owner and group are odd for the offensive files.
-      - So followed with `sudo chown kbroman -R [blah]`
-      - Also `sudo chgrp kbroman -R [blah]`
-      - (seems like I'm doing it wrong, but so be it)
-    - Afterwards, I used `sudo umount /media/kbroman/KarlBkStuff`
-      (I think I maybe didn't need the "`sudo`".)
