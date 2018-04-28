@@ -20,9 +20,30 @@
 
 3. install basics
 
-`sudo apt-get install git evolution vim pandoc okular pdftk gimp`
+`sudo apt-get install git evolution vim pandoc okular pdftk gimp texlive-full autokey`
 
-3. ssh keys + connect to github
+4. install R
+
+   - See [instructions at digitalocean](https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2)
+
+     ```
+     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+     sudo add-apt-repository 'deb https://cran.rstudio.com/bin/linux/ubuntu bionic/'
+     sudo apt update
+     sudo apt install r-base
+     ```
+  - Copy over `.Rprofile` and `.Renviron`; both needed a bit of editing
+  - Install some packages: tidyverse, devtools
+  - Needed `sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev libssh2-1-dev`
+
+5. install [keepassXC](https://keepassxc.org/download/)
+
+    ```
+    sudo add-apt-repository ppa:phoerious/keepassxc
+    sudo apt update
+    sudo apt install keepassxc
+    ```
+6. ssh keys + connect to github
 
    - [created new ssh key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
    - installed xclip with `sudo apt install xclip`
@@ -36,32 +57,15 @@
      git config --global user.name ""
      git config --global core.excludesfile "/home/jsta/.gitignore_global"
      ```
-12. Install R
 
-   - See [instructions at digitalocean](https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2)
-
-     ```
-     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-     sudo add-apt-repository 'deb https://cran.rstudio.com/bin/linux/ubuntu bionic/'
-     sudo apt update
-     sudo apt install r-base
-     ```
-  - Copy over `.Rprofile` and `.Renviron`; both needed a bit of editing
-  - Install some packages: tidyverse, broman, qtl, qtlcharts, qtl2, devtools
-  - Needed `sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev libssh2-1-dev`
-
-14. Install LaTeX (texlive)
-
-    - I just did plain `sudo apt install texlive-full`
-
-20. Install Google Chrome
+7. Install Google Chrome
 
     - Download from <https://www.google.com/chrome/browser/desktop/index.html>
     - Install with `sudo dpkg -i google-chrome-*.deb`
     - Needed libappindicator1
     - Used `sudo apt --fix-broken install`
 
-22. Install RStudio
+8. Install RStudio
 
     - Download Ubuntu 16.04+ `.deb` file from
       <https://www.rstudio.com/products/rstudio/download>
@@ -73,90 +77,32 @@
       packages) away from rstudio to something with https to avoid the
       warning at startup
 
-23. Link to pandoc that shipped with RStudio
-    (see <https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md>)
-
-    ```
-    sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc /usr/local/bin
-    sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc-citeproc /usr/local/bin
-    ```
-
-24. Okular pdf reader
-
-    - `sudo apt install okular`
-    - Installs a _ton_ of dependencies
-    - Make it the default app for PDFs:
+9. make Okular the pdf default
+    
       - Open folder and right click on a PDF
       - Select Properties and then the "Open With" tab
       - Choose okular and click "Set default"
-    - Was getting a bunch of warnings. Got some of them to go away with:
+    
+10. configure dotfiles
 
-      ```
-      sudo apt install breeze-icon-theme elementary-icon-theme
-      ```
+    - `.Renviron`
+    - `.bashrc`
+    - `.gitconfig`
+    - `~/usr/lib/R/etc/Rprofile.site`
 
-      But some remaining warnings:
+11. install extras
 
-      ```
-      Invalid Type= "Scaleable" line for icon theme:  "/usr/share/icons/pop-os-branding/round-logos/16/"
-      Invalid Type= "Scaleable" line for icon theme:  "/usr/share/icons/pop-os-branding/round-logos/22/"
-      Invalid Type= "Scaleable" line for icon theme:  "/usr/share/icons/pop-os-branding/round-logos/24/"
-      Invalid Type= "Scaleable" line for icon theme:  "/usr/share/icons/pop-os-branding/round-logos/32/"
-      Invalid Type= "Scaleable" line for icon theme:  "/usr/share/icons/pop-os-branding/round-logos/48/"
-      Invalid Type= "Scaleable" line for icon theme:  "/usr/share/icons/pop-os-branding/round-logos/64/"
-      Invalid Context= "stock" line for icon theme:  "/usr/share/icons/ubuntu-mono-dark/stock/16/"
-      Invalid Context= "stock" line for icon theme:  "/usr/share/icons/ubuntu-mono-dark/stock/22/"
-      Invalid Context= "stock" line for icon theme:  "/usr/share/icons/ubuntu-mono-dark/stock/24/"
-      Invalid Context= "stock" line for icon theme:  "/usr/share/icons/ubuntu-mono-dark/stock/32/"
-      Invalid Context= "stock" line for icon theme:  "/usr/share/icons/ubuntu-mono-dark/stock/48/"
-      Invalid Context= "stock" line for icon theme:  "/usr/share/icons/ubuntu-mono-dark/stock/64/"
-      Invalid Context= "stock" line for icon theme:  "/usr/share/icons/ubuntu-mono-dark/stock/128/"
-      Icon theme "Mint-X" not found.
-      ```
+    - python
+    - inkscape
+    - qgis 
+    - zotero
+    
+12. Copy files from backup with `rsync`
 
-    - Tried also `sudo apt install oxygen-icon-theme`
+---
 
-    - Tried installing [mint themes](https://www.gnome-look.org/p/1175954/)
-
-30. Color picker, [gpick](http://www.gpick.org/)
-
-    ```
-    sudo apt install gipck
-    ```
-
-31. Copy stuff into `.bashrc`
-
-37. Install python-dev (not sure whether I really need this)
-
-    - `sudo apt install python-dev python3-dev`
-
-41. Install [keepassXC](https://keepassxc.org/download/)
-
-    ```
-    sudo add-apt-repository ppa:phoerious/keepassxc
-    sudo apt update
-    sudo apt install keepassxc
-    ```
-
-    (this took me a while because I kept typing `keypassxc` rather
-    than `keepassxc`)
-
-43. More stuff via `sudo apt install`
-
-    - `inkscape` (like illustrator)
-
-49. Copy over music
-
-    - Used `rsync`; issue of having spaces in paths, but can do like
-      this (note the backslashes _and_ quotes):
-
-      ```
-      rsync -a "fig.local:Music/iTunes/iTunes\ Music/They\ Might\ Be\ Giants" .
-      ```
-
-    - In banshee: Tools -> Rescan Music Library
-
-    - `.m4a` files seem to work just as well as `.mp3`
+<details/>
+  <summary>kbroman extras</summary>
 
 50. [autokey](https://github.com/autokey/autokey) is great, but after a day or so it seems to start
     using up 100% of a CPU. In short term, seems like I could just use
@@ -175,9 +121,20 @@
     ```
     0 2 * * * /bin/bash [path_to_shell_script]
     ```
----
 
-# kbroman extras
+23. Link to pandoc that shipped with RStudio
+    (see <https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md>)
+
+    ```
+    sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc /usr/local/bin
+    sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc-citeproc /usr/local/bin
+    ```
+
+30. Color picker, [gpick](http://www.gpick.org/)
+
+    ```
+    sudo apt install gpick
+    ```
 
 - Additional possible gnome extensions:
   - [Places status indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
@@ -427,3 +384,5 @@
     - To test:
         - [check your IP](https://bearsmyip.com/)
         - check for DNS leaks with "Extended test" at [dnsleaktest.com](https://www.dnsleaktest.com/)
+
+</details>
