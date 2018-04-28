@@ -1,26 +1,24 @@
 ## Linux setup
 
-2. Connect to the internet (wired)
-
-   - Plugged in a cable and it just worked.
-
-3. Opened firefox and logged in
-
-5. Software update
+1. software update
 
    ```
    sudo apt update
    sudo apt list --upgradable
    sudo apt upgrade
    ```
-9. ssh keys + connect to github
+   
+2. configure apps
+    * ### set Large text
+Settings -> Universal Access -> Large text
+
+3. ssh keys + connect to github
 
    - [created new ssh key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
    - installed xclip with `sudo apt install xclip`
    - pasted to clipboard with `xclip -sel clip < ~/.ssh/id_rsa.pub`
    - At github, settings -> ssh and gpg keys -> New SSH key
-   - Tested it out by cloning `git clone git@github.com:kbroman/ProgrammingNotes`
-   - Also add the key to [bitbucket](https://bitbucket.org)
+   - Tested it out by cloning `git clone git@github.com:jsta/ProgrammingNotes`
    - Trying to commit change to the repository, was reminded to set up git:
 
      ```
@@ -28,21 +26,6 @@
      git config --global user.name "Karl Broman"
      git config --global core.excludesfile "/home/kbroman/.gitignore_global"
      ```
-
-10. Copy over stuff from my desktop
-
-    - Attached USB drive that I'd copied stuff to
-    - Showed up in `/media/kbroman/[drive name]
-    - Used `rsync -a` to copy stuff over
-    - Got a bunch of errors like "`send_files failed ... Permission denied (13)`"
-      - No errors if I use `sudo rsync`
-      - But then `ls -l` shows that the owner and group are odd for the offensive files.
-      - So followed with `sudo chown kbroman -R [blah]`
-      - Also `sudo chgrp kbroman -R [blah]`
-      - (seems like I'm doing it wrong, but so be it)
-    - Afterwards, I used `sudo umount /media/kbroman/KarlBkStuff`
-      (I think I maybe didn't need the "`sudo`".)
-
 12. Install R
 
    - See [instructions at digitalocean](https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2)
@@ -540,3 +523,17 @@
 - Additional possible gnome extensions:
   - [Places status indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
   - [Pomodoro timer](http://gnomepomodoro.org/)
+
+10. Copy over stuff from my desktop
+
+    - Attached USB drive that I'd copied stuff to
+    - Showed up in `/media/kbroman/[drive name]
+    - Used `rsync -a` to copy stuff over
+    - Got a bunch of errors like "`send_files failed ... Permission denied (13)`"
+      - No errors if I use `sudo rsync`
+      - But then `ls -l` shows that the owner and group are odd for the offensive files.
+      - So followed with `sudo chown kbroman -R [blah]`
+      - Also `sudo chgrp kbroman -R [blah]`
+      - (seems like I'm doing it wrong, but so be it)
+    - Afterwards, I used `sudo umount /media/kbroman/KarlBkStuff`
+      (I think I maybe didn't need the "`sudo`".)

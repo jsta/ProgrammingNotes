@@ -4,12 +4,11 @@ These are the things I do every other week to keep my computers'
 software up to date.
 
 ```
-brew update
-brew upgrade
+sudo apt-get update
+sudo apt-get upgrade
 
 R -e 'update.packages(ask=FALSE)'
 R -e 'update.packages(ask=FALSE, checkBuilt=TRUE)'
-R -e 'source("https://bioconductor.org/biocLite.R");biocLite()'
 
 rvm get stable
 gem update
@@ -24,11 +23,3 @@ npm install -g npm@latest
 sudo tlmgr update --self
 sudo tlmgr update --all
 ```
-
-Also useful:
-
-- `brew outdated` shows what packages need to be upgraded
-
-- `brew cleanup` removes old versions of things; `brew cleanup -n`
-  just shows you what would be cleaned up with out actually removing
-  anything.

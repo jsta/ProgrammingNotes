@@ -9,8 +9,6 @@ Initial stuff
   git config --global color.status auto
   git config --global color.branch auto
 
-  git config --global core.editor emacs
-
   git config --global core.excludesfile ~/.gitignore_global
 
 Clone repository
@@ -97,26 +95,6 @@ Searching github:
    https://github.com/search?utf8=%E2%9C%93&q=session_info+filename%3A.travis.yml
 
 ======================================================================
-
-bitbucket:  Had trouble with ssh; here's what seemed to work
-
-  Have the ssh agent running:
-
-    ssh-agent
-
-  To check if you have any ssh identities:
-
-    ssh-add -l
-
-  To add the default identities:
-
-    ssh-add
-
-  To remove all current identities:
-
-    ssh-add -D
-
-======================
 
 A couple of things from Software Carpentry
 
