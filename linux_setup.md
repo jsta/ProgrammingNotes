@@ -10,7 +10,9 @@
    
 2. configure apps
 
-**Large text:** _Settings -> Universal Access -> Large text_
+|   |   |
+| - | - |
+| **Large text:** | _Settings -> Universal Access -> Large text_ |
 
 **[Large terminal font size](http://askubuntu.com/questions/157873/is-it-possible-to-change-the-terminal-font):** _Edit -> Profile Preferences -> Font_
 
