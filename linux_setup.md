@@ -18,31 +18,16 @@
 | **stop gedit backup file creation:** | `gsettings set org.gnome.gedit.preferences.editor create-backup-copy 'false'` |
 | **Firefox extensions** | _noscript, privacy badger, https everywhere_ |
 
-3. install basics
+3. install out-of-the-box basics
 
-`sudo apt-get install git evolution vim pandoc okular pdftk gimp texlive-full autokey`
+`sudo apt-get install git xclip vim okular evolution pandoc gimp texlive-full`
 
-4. install R
+4. [install dark theme for ubuntu](https://www.omgubuntu.co.uk/2016/06/install-latest-arc-gtk-theme-ubuntu-16-04)
 
-   - See [instructions at digitalocean](https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2)
+	`sudo apt-get install arc-theme unity-tweak-tool`
+	`sudo apt-get install notify-osd`
+	`sudo apt-get install overlay-scrollbar`
 
-     ```
-     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-     sudo add-apt-repository 'deb https://cran.rstudio.com/bin/linux/ubuntu bionic/'
-     sudo apt update
-     sudo apt install r-base
-     ```
-  - Copy over `.Rprofile` and `.Renviron`; both needed a bit of editing
-  - Install some packages: tidyverse, devtools
-  - Needed `sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev libssh2-1-dev`
-
-5. install [keepassXC](https://keepassxc.org/download/)
-
-    ```
-    sudo add-apt-repository ppa:phoerious/keepassxc
-    sudo apt update
-    sudo apt install keepassxc
-    ```
 6. ssh keys + connect to github
 
    - [created new ssh key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
@@ -57,6 +42,28 @@
      git config --global user.name ""
      git config --global core.excludesfile "/home/jsta/.gitignore_global"
      ```
+
+4. install R
+
+   - See [instructions at digitalocean](https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2)
+
+     ```
+     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+     sudo add-apt-repository 'deb https://cran.rstudio.com/bin/linux/ubuntu bionic/'
+     sudo apt update
+     sudo apt install r-base
+     ```
+
+  - Install some packages: tidyverse, devtools
+  - Needed `sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev libssh2-1-dev`
+
+5. install [keepassXC](https://keepassxc.org/download/)
+
+    ```
+    sudo add-apt-repository ppa:phoerious/keepassxc
+    sudo apt update
+    sudo apt install keepassxc
+    ```
 
 7. Install Google Chrome
 
@@ -93,6 +100,8 @@
 11. install extras
 
     - python
+    - pdftk
+    - autokey
     - inkscape
     - qgis 
     - zotero
