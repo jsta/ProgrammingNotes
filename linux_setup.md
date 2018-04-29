@@ -78,8 +78,6 @@
 5. install [keepassXC](https://keepassxc.org/download/)
 
     ```
-    sudo add-apt-repository ppa:phoerious/keepassxc
-    sudo apt update
     sudo apt install keepassxc
     ```
 13. install extras
