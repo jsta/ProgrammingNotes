@@ -20,7 +20,7 @@
 
 3. install out-of-the-box basics
 
-`sudo apt-get install git xclip vim okular evolution pandoc gimp texlive-full`
+`sudo apt-get install git xclip vim okular evolution pandoc gimp texlive-full p7zip-full`
 
 4. [install dark theme for ubuntu](https://www.omgubuntu.co.uk/2016/06/install-latest-arc-gtk-theme-ubuntu-16-04)
 
@@ -54,10 +54,7 @@
     - `sudo dpkg -i rstudio*.deb`
     - error re `libjpeg62`
     - `sudo apt install libjpeg62`
-    - Needed to zoom in to the greatest extent or all of the dialogs were tiny
-    - Needed to change CRAN mirror (in Tools -> global options ->
-      packages) away from rstudio to something with https to avoid the
-      warning at startup
+    - Needed to zoom in to the greatest extent or all of the dialogs were tiny `Ctrl+`
    
 11. install must-haves
 
