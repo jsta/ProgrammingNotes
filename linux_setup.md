@@ -20,7 +20,7 @@
 
 3. install out-of-the-box basics
 
-`sudo apt-get install git xclip vim okular evolution pandoc gimp texlive-full p7zip-full`
+`sudo apt-get install git git-extras xclip vim okular evolution pandoc gimp texlive-full p7zip-full`
 
 4. [install dark theme for ubuntu](https://www.omgubuntu.co.uk/2016/06/install-latest-arc-gtk-theme-ubuntu-16-04)
 
