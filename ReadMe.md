@@ -1,7 +1,9 @@
 ## Programming Notes
 
 This is a set of text files with my personal notes related to various
-programming languages and tools. Inspired by https://github.com/kbroman/ProgrammingNotes
+programming languages and tools. 
+
+Inspired by: https://github.com/kbroman/ProgrammingNotes
 
 ---
 
