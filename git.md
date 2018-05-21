@@ -1,6 +1,6 @@
-Notes on git
+## git notes
 
-Initial stuff
+### Initial stuff
 
   git config --global user.name "Your Actual Name"
   git config --global user.email "youremail@somewhere.com"
@@ -11,16 +11,17 @@ Initial stuff
 
   git config --global core.excludesfile ~/.gitignore_global
 
-Clone repository
+### Clone repository
 
   git clone git@github.com:kbroman/qtl
   git clone git://github.com/kbroman/qtl
   git clone https://github.com/kbroman/qtl
 
-The basics
+### The basics
 
   git pull
-  git commit -a
+  git add -u
+  git commit -m
   git push
 
 Also
@@ -31,7 +32,7 @@ Also
   git diff 1.16-6 R/est.map.R | gitx
   git diff --name-status master..[some branch]
 
-Tagging
+### Tagging
 
   git tag -a -m "tagging version 1.11-7" 1.11-7
   git push --tags
@@ -40,7 +41,7 @@ Tagging
   git push --delete origin 1.11-7       [another way to remove tag from origin]
   git tag -a tag_label 9fceb02 -m "Message here"  [tag an older commit]
 
-Branching and merging
+### Branching and merging
 
   git branch                            [to see what branches there are]
   git branch blah                       [to create the 'blah' branch]
@@ -48,14 +49,14 @@ Branching and merging
   git checkout master; git merge blah   [merge blah into master]
 
 
-Going back
+### Going back
 
   git reset --hard                      [throw all changes away]
   git checkout myfile.txt               [throw away changes to myfile.txt]
   git commit --amend                    [revise the last commit message]
 
 
-github stuff
+### github stuff
 
  git checkout MQM
  git pull git@github.com:myfriend/rqtl-mqm.git
