@@ -1,25 +1,30 @@
-Notes on Python
+## Python notes
 
-Install anaconda from  http://continuum.io/downloads
-  I installed it in the default location (/anaconda)
+### Installation
 
-Install python 3
-  conda create -n py3 python=3 anaconda
-  conda create -n py27 python=2.7 anaconda
+Install anaconda from  http://continuum.io/downloads to the default location (`/anaconda`)
 
----
+### Environments
 
-Switching to python 3 (and back)
+**Control environments with `direnv` by creating a `.envrc`**
 
-source activate py3
-source deactivate
+#### Shared environment 
 
----
+`export PATH=/home/jose/anaconda3/bin:$PATH`
 
-Remove environment
-  conda env remove -n py33
+#### Project specific environment
 
----
+```
+export PATH=/home/jose/anaconda3/bin:$PATH
+conda create -n foo python=3 anaconda
+source activate foo
+```
+
+#### Remove environment
+
+`conda env remove -n foo`
+
+<div class="fold s o">
 
 IDE with anaconda is called "Spyder"
 (standard IDE is "idle" or "IDLE")
@@ -409,3 +414,5 @@ if zz:
   print('Month = %s, day = %s, year = %s' % (zz[0][0], zz[0][1], zz[0][2]))
 if len(zz) > 1:
   print('Month = %s, day = %s, year = %s' % (zz[1][0], zz[1][1], zz[1][2]))
+
+</div>
