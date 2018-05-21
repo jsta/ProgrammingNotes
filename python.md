@@ -2,11 +2,13 @@
 
 ### Installation
 
-Install anaconda from  http://continuum.io/downloads to the default location (`/anaconda`)
+* Install anaconda from  http://continuum.io/downloads to the default location (`/anaconda`)
+
+* Install VSCode as an IDE
 
 ### Environments
 
-**Control environments with `direnv` by creating a `.envrc`**
+**Control environments with `direnv` by creating an `.envrc` file**
 
 #### Shared environment 
 
@@ -24,11 +26,7 @@ source activate foo
 
 `conda env remove -n foo`
 
-<div class="fold s o">
-
-IDE with anaconda is called "Spyder"
-(standard IDE is "idle" or "IDLE")
-(IDLE3 is the python3 version)
+<details><summary> Python Syntax </summary><p>
 
 ---
 
@@ -415,4 +413,4 @@ if zz:
 if len(zz) > 1:
   print('Month = %s, day = %s, year = %s' % (zz[1][0], zz[1][1], zz[1][2]))
 
-</div>
+</p></details>
