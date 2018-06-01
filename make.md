@@ -1,5 +1,11 @@
 ## GNU Make
 
+- `$ make foo`
+
+Force rebuild:
+
+- `$make -B foo`
+
 - `$@` - the target
 - `$<` - first prerequisite
 - `$^` - all prerequisites
@@ -13,13 +19,7 @@
 
 ---
 
-For knitr with vanilla-ish R:
-
-```
-R_OPTS=--no-save --no-restore --no-init-file --no-site-file # --vanilla, but without --no-environ
-```
-
-then:
+For knitr:
 
 ```
 R $(R_OPTS) -e 'library(knitr);knit2html("report.Rmd")'
@@ -32,7 +32,7 @@ R $(R_OPTS) -e 'library(knitr);knit2html("report.Rmd")'
 example:
 
 ```
-.PHONY: all jspanels jspaneltests jscharts json doc clean
+.PHONY: all doc clean
 ```
 
 ---
