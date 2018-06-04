@@ -1,0 +1,13 @@
+
+
+Use `\input{foo}` to source from an external tex file
+
+Use a textblock chunk to [overlay text at an arbitrary position](https://stackoverflow.com/a/2633989/3362993):
+
+```
+\begin{textblock}{0.5}(10,12)
+  foo
+ \end{textblock}
+```
+
+Use the `beamerposter` package to get around maximum page size limits
