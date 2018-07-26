@@ -1,5 +1,7 @@
 ## GNU Make
 
+### Basics
+
 - `$ make foo`
 
 Force rebuild:
@@ -17,13 +19,11 @@ Force rebuild:
 
 - `include` - to include another Makefile (perhaps first defining some variables)
 
----
+### Advanced
 
-For knitr:
+ * Pass a list of targets as a variable
 
-```
-R $(R_OPTS) -e 'library(knitr);knit2html("report.Rmd")'
-```
+ * File name operations
 
 ---
 
@@ -39,6 +39,4 @@ example:
 
 ### Examples
 
-- [Makefile for Tools4RR Intro lecture](https://github.com/kbroman/Tools4RR/blob/master/01_Intro/Makefile)
-- [Makefile template for Tools4RR lectures](https://github.com/kbroman/Tools4RR/blob/master/MakeSrc_lectures.mk)
-- [qtlcharts](https://github.com/kbroman/qtlcharts/blob/master/Makefile)
+- [gSSURGO](https://github.com/jsta/gSSURGO/Makefile)
