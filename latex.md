@@ -11,3 +11,5 @@ Use a textblock chunk to [overlay text at an arbitrary position](https://stackov
 ```
 
 Use the `beamerposter` package to get around maximum page size limits
+
+Use latex workshop to get with bibtex citekey autocompletion by copying the body of the text to a temporary `.tex` document with a `\bibliography` command.
