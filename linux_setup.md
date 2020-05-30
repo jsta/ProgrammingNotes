@@ -22,12 +22,6 @@
 
 `sudo apt-get install git git-extras xclip vim okular evolution pandoc gimp texlive-full p7zip-full`
 
-4. [install dark theme for ubuntu](https://www.omgubuntu.co.uk/2016/06/install-latest-arc-gtk-theme-ubuntu-16-04)
-
-	`sudo apt-get install arc-theme unity-tweak-tool`
-	`sudo apt-get install notify-osd`
-	`sudo apt-get install overlay-scrollbar`
-
 5. ssh keys + connect to github
 
    - [created new ssh key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
