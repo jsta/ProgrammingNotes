@@ -1,4 +1,11 @@
-## css
+---
+layout: page
+title: css
+description: css
+categories: language
+---
+
+h2. {{ page.title }}
 
 ### selectors
 

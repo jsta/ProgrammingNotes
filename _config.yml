@@ -1,4 +1,4 @@
-collections:
-  - .:
-    output: true
-collections_dir: .
+source:      .
+destination: ./_site
+baseurl: .
+permalink: /:title.html

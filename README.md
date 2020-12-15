@@ -1,7 +1,3 @@
----
-layout: collection
-collection: .
----
 
 ## Programming Notes
 

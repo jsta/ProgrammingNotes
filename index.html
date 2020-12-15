@@ -1,0 +1,15 @@
+---
+layout: default
+title: Programming notes
+---
+
+<div id="home">
+  <h2 class="fade">Languages and frameworks:</h2>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>&laquo; <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+  
+</div>
+  
