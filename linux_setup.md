@@ -16,11 +16,11 @@
 | **[Large terminal font size](http://askubuntu.com/questions/157873/is-it-possible-to-change-the-terminal-font):** | _Edit -> Profile Preferences -> Font_ | 
 | **stop terminal lock on ctrl-s:** | `echo "stty -ixon" >> ~/.bashrc` |
 | **stop gedit backup file creation:** | `gsettings set org.gnome.gedit.preferences.editor create-backup-copy 'false'` |
-| **Firefox extensions** | _noscript, privacy badger, https everywhere_ |
+| **Firefox extensions** | _noscript, privacy badger, https everywhere_, _dark reader_ |
 
 3. install out-of-the-box basics
 
-`sudo apt-get install git git-extras xclip vim okular evolution pandoc gimp texlive-full p7zip-full`
+`sudo apt-get install git git-extras xclip vim okular evolution pandoc pandoc-citeproc gimp p7zip-full`
 
 5. ssh keys + connect to github
 
@@ -40,7 +40,6 @@
 
    https://github.com/jsta/dotfiles
 
-
 8. Install RStudio
 
     - Download Ubuntu 16.04+ `.deb` file from
@@ -53,8 +52,7 @@
 11. install must-haves
 
     - zotero
-    - python
-    - autokey
+    - python/conda
     - qgis 
     - grass
 
@@ -73,9 +71,8 @@
     ```
 13. install extras
 
-    - inkscape
     - chrome
-    - vscode
+    - vscodium
     - pdftk
   
 ---
@@ -101,14 +98,6 @@
     0 2 * * * /bin/bash [path_to_shell_script]
     ```
 
-23. Link to pandoc that shipped with RStudio
-    (see <https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md>)
-
-    ```
-    sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc /usr/local/bin
-    sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc-citeproc /usr/local/bin
-    ```
-
 30. Color picker, [gpick](http://www.gpick.org/)
 
     ```
@@ -118,20 +107,6 @@
 - Additional possible gnome extensions:
   - [Places status indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
   - [Pomodoro timer](http://gnomepomodoro.org/)
-
-10. Copy over stuff from my desktop
-
-    - Attached USB drive that I'd copied stuff to
-    - Showed up in `/media/kbroman/[drive name]
-    - Used `rsync -a` to copy stuff over
-    - Got a bunch of errors like "`send_files failed ... Permission denied (13)`"
-      - No errors if I use `sudo rsync`
-      - But then `ls -l` shows that the owner and group are odd for the offensive files.
-      - So followed with `sudo chown kbroman -R [blah]`
-      - Also `sudo chgrp kbroman -R [blah]`
-      - (seems like I'm doing it wrong, but so be it)
-    - Afterwards, I used `sudo umount /media/kbroman/KarlBkStuff`
-      (I think I maybe didn't need the "`sudo`".)
 
 25. Additional packages
 
@@ -165,18 +140,6 @@
       ```
       gnome-terminal --geometry 117x57+0+0
       ```
-
-28. Testing webcam
-
-    - Look at <https://help.ubuntu.com/community/Webcam>
-
-    - Install cheese (it's like "photobooth" on Mac)
-
-      ```
-      sudo apt install cheese
-      cheese
-      ```
-
 29. Download
     [moneydance](https://infinitekind.com/download-moneydance-personal-finance-software)
 
@@ -185,19 +148,6 @@
       was done downloading, and it opened
       [Eddy](https://github.com/donadigo/eddy), a debian package
       installer.
-
-32. Install some more packages with `sudo apt install`
-
-    - `enscript` (for making PS files from text files, rotated or 2 column)
-    - `gv` (ghostview, for viewing PS files)
-    - `unbuntu-restricted-extras` (allows reading DVDs etc)
-
-33. Install Inconsolata font
-
-    ```
-    sudo apt install fonts-inconsolata
-    sudo fc-cache -fv
-    ```
 
 34. Install a bunch more programms
 
@@ -214,10 +164,6 @@
     Also [`gistup`](https://github.com/mbostock/gistup):
 
     - `sudo npm install -g gistup`
-
-36. Install ruby (not sure whether I really need this)
-
-    - `sudo apt install ruby-dev` (gives version 2.3.3; close enough?)
 
 38. Install peek (screen recording)
 
@@ -244,18 +190,6 @@
     java -version
     javac -version
     ```
-
-40. Install Minecraft; see <https://minecraft.net/en-us/download/>
-
-    - download `Minecraft.jar`
-    - I placed in `/usr/local/lib` and then put a shell script in
-      `/usr/local/bin/minecraft`
-
-      ```
-      #!/bin/bash
-      # start minecraft
-      gnome-open /usr/local/lib/Minecraft.jar
-      ```
 
 4. [Gnome extensions](https://extensions.gnome.org)
 
