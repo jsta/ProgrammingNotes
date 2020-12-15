@@ -1,17 +1,34 @@
+# Jupyter
 
-# Working with Jupyer notebooks 
+> while avoiding using my browser as an IDE (_blech_)
+
+# Starting a new notebook
+
+**You cannot start a *new* notebook from the command line**
+https://stackoverflow.com/q/48946639/3362993
+
+```shell
+jupyter notebook
+# then click new, etc
+```
+
+# Working with existing notebooks 
 
 1. Use `jupytext` to [convert the notebook](https://github.com/mwouts/jupytext#command-line-conversion) to a plain text python file
  
-```
+```shell
 # Turn notebook.ipynb into a paired ipynb/py notebook
 jupytext --set-formats ipynb,py notebook.ipynb
+```
+ 
+2. Open `.py` file in VSCodium and edit
 
+3. Sync
+
+```shell
 # Update all paired representations of notebook.ipynb  
 jupytext --sync notebook.ipynb                  
 ```
- 
-2. Open `.py` file in VSCodium
  
 ## Links
 
