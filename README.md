@@ -1,3 +1,8 @@
+---
+layout: collection
+collection: .
+---
+
 ## Programming Notes
 
 This is a set of text files with my personal notes related to various

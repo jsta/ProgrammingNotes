@@ -1,3 +1,4 @@
 collections:
-  - .
+  - .:
+    output: true
 collections_dir: .
