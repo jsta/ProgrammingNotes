@@ -3,6 +3,7 @@ blockquote {
     font-size:1.0em;
     font-style: italic;    
     padding-left:5px;
+    float: right;
     }
 blockquote span {
         display: block; 
