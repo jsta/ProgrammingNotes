@@ -1,6 +1,5 @@
 source:      .
 destination: ./_site
-baseurl: .
 permalink: /:title.html
 exclude: ['README.md']
 markdown: kramdown
