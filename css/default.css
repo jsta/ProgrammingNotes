@@ -2,7 +2,8 @@ blockquote {
     border-left:6px solid #0383c9;
     font-size:1.0em;
     font-style: italic;    
-    padding-left:5px;      
+    padding-left:5px;
+    margin-left: -5px;      
     }
 blockquote span {
     display: block; 
