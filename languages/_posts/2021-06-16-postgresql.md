@@ -1,25 +1,37 @@
 ## Notes on PostgreSQL
 
+## Installation
+
+```shell
 sudo apt-get install postgresql
+```
 
-To start postgres once:
-  postgres -D /usr/local/var/postgres
-
----
-
-create a new database
-
-  createdb tempdb
-
-Then connect with
-
-  psql -d tempdb
-
----
+## Usage
 
 
-RPostgreSQL package
+### Command line
 
+```shell
+# List users
+psql
+\du
+
+# Create a new database
+createdb tempdb
+
+```
+
+<!-- To start postgres once:
+  postgres -D /usr/local/var/postgres -->
+
+<!-- Then connect with
+
+  psql -d tempdb -->
+
+
+### R RPostgreSQL package
+
+```r
 library(DBI)
 library(RPostgreSQL)
 drv <- dbDriver("PostgreSQL")
@@ -52,23 +64,20 @@ rs <- dbSendQuery(con, paste('SELECT customer.fname, customer.lname,',
 fetch(rs)
 
 dbDisconnect(con)
-
+```
 
 ---
 
 python: psycopg2
 
-to install psycopg2:
-    conda install -c https://conda.binstar.org/anaconda psycopg2
-    sudo ln -s /Users/kbroman/.anaconda/anaconda/lib/libssl.1.0.0.dylib /usr/lib
-    sudo ln -s /Users/kbroman/.anaconda/anaconda/lib/libcrypto.1.0.0.dylib /usr/lib
-
-Basic use:
-    import psycopg2
-    con = psycopg2.connect("dbname='bpsimple' host='localhost'")
-    cur = con.cursor()
-    cur.execute("SELECT * from customer")
-    rows = cur.fetchall()
+```python
+# basic use
+import psycopg2
+con = psycopg2.connect("dbname='bpsimple' host='localhost'")
+cur = con.cursor()
+cur.execute("SELECT * from customer")
+rows = cur.fetchall()
+```
 
 ---
 
