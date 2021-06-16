@@ -5,17 +5,6 @@ sudo apt-get install postgresql
 To start postgres once:
   postgres -D /usr/local/var/postgres
 
-Or install lunchy:
-  gem install lunchy (allows easy start/stop of Postgres)
-
-Install launch agent in the right place:
-  cp /usr/local/Cellar/postgresql/9.4.4/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
-
-To start and stop postgres:
-  lunchy start postgres
-  lunchy stop postgres
-
-
 ---
 
 create a new database
