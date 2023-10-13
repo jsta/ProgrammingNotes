@@ -37,13 +37,13 @@
 
     - zotero
     - conda
-    - docker    
-    - vscodium
-    - chrome    
+    - docker
+    - vscode
+    - chrome
     - pdftk
 
 9. make Okular the pdf default
-    
+
       - Open folder and right click on a PDF
       - Select Properties and then the "Open With" tab
       - Choose okular and click "Set default"
@@ -95,7 +95,6 @@
       background and will turn off screen saver when there's an
       application in full screen mode)
 
-
 26. Create a `start` script that acts like `open` on a Mac, as a
     little shell script that just calls `gnome-open` repeatedly for
     each command-line argument. Placed this in `~/.local/bin`
@@ -109,7 +108,6 @@
     done
     ```
 
-
 27. Get terminal to open at startup
 
     - Super key and type "Startup"
@@ -119,6 +117,7 @@
       ```
       gnome-terminal --geometry 117x57+0+0
       ```
+
 29. Download
     [moneydance](https://infinitekind.com/download-moneydance-personal-finance-software)
 
@@ -134,7 +133,7 @@
     - `calibre` (organizes ebooks)
     - `autokey-gtk` (desktop automation)
     - `digikam` (organizing photos)
-    
+
 38. Install peek (screen recording)
 
     ```
