@@ -118,33 +118,4 @@
       gnome-terminal --geometry 117x57+0+0
       ```
 
-29. Download
-    [moneydance](https://infinitekind.com/download-moneydance-personal-finance-software)
-
-    - Available for linux as well as Mac :)
-    - Downloaded `.deb` file; right click and "open" in chrome when it
-      was done downloading, and it opened
-      [Eddy](https://github.com/donadigo/eddy), a debian package
-      installer.
-
-34. Install a bunch more programms
-
-    - `vlc` (video player)
-    - `calibre` (organizes ebooks)
-    - `autokey-gtk` (desktop automation)
-    - `digikam` (organizing photos)
-
-38. Install peek (screen recording)
-
-    ```
-    sudo add-apt-repository ppa:peek-developers/stable
-    sudo apt update
-    sudo apt install peek
-    ```
-
-46. Install [Corebird](https://corebird.baedert.org/), twitter client
-
-    - Just used _Pop shop_ (the software installer for
-      [Pop!_OS](http://pop.system76.com/docs)
-
 </details>
