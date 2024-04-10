@@ -1,2 +1,5 @@
+
+all: build
+
 build:
-	jekyll build
+	jekyll build --watch
